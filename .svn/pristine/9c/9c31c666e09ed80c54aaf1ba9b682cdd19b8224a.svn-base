@@ -1,0 +1,137 @@
+<?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+/*
+  | -------------------------------------------------------------------------
+  | URI ROUTING
+  | -------------------------------------------------------------------------
+  | This file lets you re-map URI requests to specific controller functions.
+  |
+  | Typically there is a one-to-one relationship between a URL string
+  | and its corresponding controller class/method. The segments in a
+  | URL normally follow this pattern:
+  |
+  |	example.com/class/method/id/
+  |
+  | In some instances, however, you may want to remap this relationship
+  | so that a different class/function is called than the one
+  | corresponding to the URL.
+  |
+  | Please see the user guide for complete details:
+  |
+  |	https://codeigniter.com/user_guide/general/routing.html
+  |
+  | -------------------------------------------------------------------------
+  | RESERVED ROUTES
+  | -------------------------------------------------------------------------
+  |
+  | There are three reserved routes:
+  |
+  |	$route['default_controller'] = 'welcome';
+  |
+  | This route indicates which controller class should be loaded if the
+  | URI contains no data. In the above example, the "welcome" class
+  | would be loaded.
+  |
+  |	$route['404_override'] = 'errors/page_missing';
+  |
+  | This route will tell the Router which controller/method to use if those
+  | provided in the URL cannot be matched to a valid route.
+  |
+  |	$route['translate_uri_dashes'] = FALSE;
+  |
+  | This is not exactly a route, but allows you to automatically route
+  | controller and method names that contain dashes. '-' isn't a valid
+  | class or method name character, so it requires translation.
+  | When you set this option to TRUE, it will replace ALL dashes in the
+  | controller and method URI segments.
+  |
+  | Examples:	my-controller/index	-> my_controller/index
+  |		my-controller/my-method	-> my_controller/my_method
+ */
+/*
+ * Start Admin(Backend) Routing
+ */
+$route['default_controller'] = 'home';
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
+$route['authenticate'] = 'auth/authenticate_login';
+//$route['/'] = 'auth/login';
+$route['admin'] = 'auth/login';
+$route['admin/login'] = 'auth/login';
+$route['admin/dashboard'] = 'auth/dashboard';
+$route['admin/viewdepartment']='Manage_department/viewdepartment';
+$route['admin/doctor-detail/(.*)']='Manage_department/viewdoctordetail/$1';
+$route['admin/department-details/(.*)']='Manage_department/department_details/$1';
+$route['admin/banner-detail/(.*)']='Manage_department/banner_details/$1';
+$route['admin/booking-detail/(.*)']='Manage_department/booking_details/$1';
+$route['admin/spclist/(.*)']='Manage_department/viewspclist/$1';
+$route['admin/department-add']='Manage_department/insertdepartmentdata';
+$route['admin/department-edit/(.*)']='Manage_department/insertdepartmentdata/$1';
+$route['admin/doctor-edit/(.*)']='Manage_department/insertdoctorprofiledata/$1';
+$route['admin/banner-edit/(.*)']='Manage_department/insertbanner/$1';
+
+$route['admin/availity-edit/(.*)']='Manage_department/availity_edit/$1';
+$route['admin/doctor-add']='Manage_department/insertdoctorprofiledata';
+$route['admin/banner-add']='Manage_department/insertbanner';
+$route['admin/viewdoctor']='Manage_department/viewalldoctorlist';
+$route['admin/delete-department/(.*)']='Manage_department/department_delete/$1';
+$route['admin/delete-department']='Manage_department/department_delete';
+$route['admin/delete-profile/(.*)']='Manage_department/doctor_delete_profile/$1';
+$route['admin/delete-banner/(.*)']='Manage_department/doctor_delete_banner/$1';
+$route['admin/delete-profile']='Manage_department/doctor_delete_profile';
+$route['admin/doctor-availity'] = 'Manage_department/doctor_availity';
+$route['admin/doctor-availity-add/(.*)'] = 'Manage_department/insertdoctoravaility/$1';
+$route['admin/doctor-availity-add'] = 'Manage_department/insertdoctoravaility';
+$route['admin/doctor-availity-edit'] = 'Manage_department/editdoctoravaility';
+$route['admin/doctor-availity-edit/(.*)'] = 'Manage_department/editdoctoravaility/$1';
+$route['admin/doctor_availity_add'] = 'Manage_department/insert_doctor_availity';
+$route['admin/doctor-availity-detail/(.*)'] = 'Manage_department/doctor_avality_detail/$1';
+//frontend detail
+$route['admin/view-appointment'] = 'Manage_department/viewappointmentdetail';
+$route['admin/edit-appointment/(.*)'] = 'Manage_department/editpatientappointment/$1';
+$route['admin/edit-appointment'] = 'Manage_department/editpatientappointment';
+$route['admin/delete-PatientApp/(.*)']='Manage_department/patientApp_delete/$1';
+$route['admin/delete-PatientApp']='Manage_department/patientApp_delete';
+$route['admin/delete-availity']='Manage_department/delete_availity';
+$route['admin/delete-availity/(.*)']='Manage_department/delete_availity/$1';
+$route['admin/patient-prescription']='Manage_department/patient_prescription';
+$route['admin/patient-prescription/(.*)']='Manage_department/patient_prescription/$1';
+$route['admin/view-prescription']='Manage_department/view_prescription';
+$route['admin/prescription-details/(.*)']='Manage_department/prescription_details/$1';
+$route['admin/patient']='Manage_department/new_patientview';
+$route['admin/patient-detail/(.*)']='Manage_department/patient_detail/$1';
+//banner
+$route['admin/banner']='Home/banner';
+//logout admin
+$route['admin/logout']='auth/logout';
+
+//admin profile
+$route['admin/profile']='auth/profile';
+$route['book-appointment']='home/book_appointment';
+$route['filter_doctor']='home/filter_doctor';
+$route['step2']='home/getdoctoravalitime';
+$route['step3']='home/step3';
+$route['step4']='home/step4';
+$route['submit-step4']='home/submit_step4';
+$route['request-an-ppointment']='home/request_an_ppointment';
+$route['request-an-ppointment/(.*)']='home/request_an_ppointment/$1';
+$route['saverequst']='home/saveRequstNewuser';
+$route['step5']='home/step5';
+$route['appointment-confirm']='home/appointment_confirm';
+$route['about-us']='home/about_us';
+$route['terms-condition']='home/terms_condition';
+$route['login']='home/login';
+$route['new-user']='home/new_user';
+$route['admin/view-registeruser']='Manage_department/viewregisteruser';
+$route['admin/user-detail/(.*)']='Manage_department/viewregisteruser_detail/$1';
+$route['user-booking']='home/user_booking';
+
+
+
+
+
+
+
+
+
